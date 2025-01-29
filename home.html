@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M & P Quality Flooring</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #f8f3f3;
+            position: relative;
+            background: url('img_5930.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        /* Dim the background image */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            /* Adjust the opacity to control brightness */
+            z-index: -1;
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            position: relative;
+            background: transparent;
+            /* Fully transparent background */
+            color: rgb(251, 249, 249);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+        
+    
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 80px;
+            /* Increased spacing between menu items */
+            padding: 20px 0;
+            /* Added padding for better spacing */
+        }
+
+        nav ul li a {
+            color: rgb(252, 251, 251);
+            text-decoration: none;
+            font-size: 1.5rem;
+            /* Increased font size for menu items */
+            font-weight: 500;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+            transition: color 0.3s ease;
+            letter-spacing: 2px;
+            /* Added letter spacing */
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+            /* Gold color on hover */
+        }
+
+        /* Login Container */
+        .login-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Login Button */
+        .login-button {
+            background-color: transparent;
+            /* Transparent background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: rgba(85, 85, 85, 0.3);
+            /* Slight hover effect */
+        }
+
+        /* Login Dropdown */
+        .login-dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Slightly transparent white */
+            border: none;
+            /* Remove border */
+            box-shadow: none;
+            /* Remove box shadow */
+            padding: 20px;
+            width: 250px;
+            border-radius: 5px;
+        }
+
+        .login-dropdown input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Slightly transparent white */
+        }
+
+        .login-dropdown button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-dropdown button:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+            /* Darker on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: transparent;
+            /* Fully transparent background */
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+
+        .hero .cta-buttons {
+            margin-top: 20px;
+        }
+        /* Services Section */
+        .services {
+            padding: 40px 20px;
+            background:transparent;
+            /* Fully transparent background */
+            /* Semi-transparent white background */
+            color: #faf9f9;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .services .service-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .services .service-item {
+            background: rgba(11, 11, 11, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .services .service-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .services .service-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .hero .cta-buttons button {
+            background-color: rgba(255, 0, 0, 0.8);
+            /* Red background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .cta-buttons button:hover {
+            background-color: rgba(255, 0, 0, 1);
+            /* Brighter red on hover */
+        }
+
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            /* Semi-transparent black background */
+            color: white;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonials .testimonial-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .testimonials .testimonial-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        .testimonials .testimonial-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonials .testimonial-item span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background: transparent;
+            /* Fully transparent background */
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.15);
+        }
+
+        /* Footer Section */
+        footer {
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        footer .social-links {
+            margin-bottom: 20px;
+        }
+
+        footer .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        footer .social-links a:hover {
+            color: #ffd700;
+            /* Gold color on hover */
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .login-container {
+                top: 10px;
+                right: 10px;
+            }
+
+            .login-dropdown {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        
+        <h1>M & P <br>Quality Flooring</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="showcase.html">PROJECTS</a></li>
+                <li><a href="contact us.html">GET A QUOTE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    
+    <div class="hero">
+        <h1>OUR PRIORITY IS TO ENSURE THAT EVERY PROJECT EXCEEDS YOUR EXPECTATIONS</h1>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery">
+        <img src="vista.jpg" alt="Project Vista">
+        <img src="mnp1.jpg" alt="Project MNP 1">
+        <img src="mnp2.jpg" alt="Project MNP 2">
+        
+    </div>
+
+    <!-- Services Section -->
+    <div class="services">
+        <h2>OUR SERVICES</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Floor Installation</h3>
+                <p>We provide top-quality floor installation services for residential and commercial properties.</p>
+            </div>
+            <div class="service-item">
+                <h3>Floor Repair</h3>
+                <p>Our experts can repair and restore your floors to their original condition.</p>
+            </div>
+            <div class="service-item">
+                <h3>Custom Designs</h3>
+                <p>Create unique and personalized flooring designs tailored to your preferences.</p>
+            </div>
+        </div>
+        <div class="cta-buttons">
+            <button onclick="location.href='contact us.html'">Get a Quote</button>
+            <button onclick="location.href='showcase.html'">View Projects</button>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials">
+        <h2>WHAT OUR CLIENTS SAY</h2>
+        <div class="testimonial-list">
+            <div class="testimonial-item">
+                <p>"M & P Quality Flooring did an amazing job on our floors. Highly recommended!"</p>
+                <span>- John w.</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Professional, reliable, and excellent craftsmanship. Thank you!"</p>
+                <span>- michael S.</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Our new floors look stunning. Great service from start to finish."</p>
+                <span>- danny j.</span>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/people/MP-Quality-Floors-LLC/61567749599473/">Facebook</a>
+        
+        </div>
+        <p>&copy; 2025 M & P Quality Flooring. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle login dropdown
+        function toggleLogin() {
+            const dropdown = document.getElementById('loginDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Simulate login functionality
+        function login() {
+            alert('Login functionality coming soon!');
+            toggleLogin(); // Hide the dropdown after login attempt
+        }
+    </script>
+</body>
+
+</html>

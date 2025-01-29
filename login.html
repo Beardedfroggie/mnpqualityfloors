@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M & P Quality Flooring</title>
+    <!-- Add Google Font for Calligraphy -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #f8f3f3;
+            position: relative;
+            background: url('img_5930.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        /* Dim the background image */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(3, 3, 3, 0.5);
+            /* Adjust the opacity to control brightness */
+            z-index: -1;
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            position: relative;
+            background: transparent;
+            /* Fully transparent background */
+            color: rgb(251, 249, 249);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            /* Center menu items horizontally */
+            padding: 10px 20px;
+            /* Add padding for spacing */
+            gap:80px;
+            /* Increased spacing between menu items */
+        }
+
+        nav ul li a {
+            color: rgb(250, 246, 246);
+            /* Red color for menu items */
+            text-decoration: none;
+            font-size: 1.5rem;
+            /* Increased font size for menu items */
+            font-weight: 500;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+            transition: color 0.3s ease;
+            letter-spacing: 2px;
+            /* Added letter spacing */
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+            /* Gold color on hover */
+        }
+
+        /* Login Container */
+        .login-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Login Button */
+        .login-button {
+            background-color: transparent;
+            /* Transparent background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: rgba(85, 85, 85, 0.3);
+            /* Slight hover effect */
+        }
+
+        /* Login Dropdown */
+        .login-dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Slightly transparent white */
+            border: none;
+            /* Remove border */
+            box-shadow: none;
+            /* Remove box shadow */
+            padding: 20px;
+            width: 250px;
+            border-radius: 5px;
+        }
+
+        .login-dropdown input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Slightly transparent white */
+        }
+
+        .login-dropdown button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-dropdown button:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+            /* Darker on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: transparent;
+            /* Fully transparent background */
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+
+        /* Slideshow Container */
+        .slideshow-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            /* Move slideshow up */
+        }
+
+        /* Slideshow Section */
+        .slideshow {
+            position: relative;
+            width: 90vw;
+            /* Bigger slideshow width */
+            height: 80vh;
+            /* Bigger slideshow height */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures images cover the slideshow area */
+            display: none;
+            border-radius: 10px;
+        }
+
+        .slideshow img.active {
+            display: block;
+        }
+
+        /* Slideshow Navigation Buttons */
+        .slideshow button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .slideshow button:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+        }
+
+        .slideshow button.prev {
+            left: 10px;
+        }
+
+        .slideshow button.next {
+            right: 10px;
+        }
+
+        /* Body Section */
+        .body-section {
+            padding: 40px 20px;
+            background:/* Dim the background image */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            /* Adjust the opacity to control brightness */
+            z-index: -1;}
+            text-align: center;
+        }
+
+        .body-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+
+        .body-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Image Container */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            /* Adds space between images */
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 30%;
+            /* Adjust the width as needed */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .slideshow {
+                width: 95vw;
+                /* Adjust slideshow width for smaller screens */
+                height: 60vh;
+                /* Adjust slideshow height for smaller screens */
+            }
+
+            .slideshow button {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+
+            .body-section {
+                padding: 20px 10px;
+            }
+
+            .body-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .body-section p {
+                font-size: 1rem;
+            }
+
+            .image-container {
+                flex-direction: column;
+                /* Stack images vertically on smaller screens */
+            }
+
+            .image-container img {
+                width: 100%;
+                /* Full width for stacked images */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Login Button -->
+        <div class="login-container">
+            <button class="login-button" onclick="toggleLogin()">Log In</button>
+            <div class="login-dropdown" id="loginDropdown">
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <button onclick="login()">Submit</button>
+            </div>
+        </div>
+
+        <h1>M & P <br>Quality Flooring</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="shop.html">STORE</a></li>
+                <li><a href="showcase.html">PROJECTS</a></li>
+                <li><a href="contact us.html">GET A QUOTE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Showcase</h1>
+    </div>
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <!-- Slideshow Section -->
+        <div class="slideshow">
+            <img src="upland1.jpg" alt="Project Photo" class="active">
+            <img src="vesta.jpg" alt="Project Vista">
+            <img src="upland2.jpg" alt="Project MNP 1">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Body Section 1 -->
+    <div class="body-section">
+        <h2>LATEST PROJECTS</h2>
+        <p>
+            VESTA APARTMENTS <br>
+            OVER 25,000 SQ.FT. OF FLOORING INSTALLED
+        </p>
+        <div class="image-container">
+            <img src="vesta.jpg" alt="Vesta Project">
+            <img src="vesta1.jpg" alt="Vesta Project 1">
+            <img src="vesta2.jpg" alt="Vesta Project 2">
+        </div>
+    </div>
+
+    <!-- Body Section 2 -->
+    <div class="body-section">
+        <h2>400 W BROADWAY</h2>
+        <p></p>
+        <div class="image-container">
+            <img src="400w1.jpg" alt="Residential Project 1">
+            <img src="400w2.jpg" alt="Residential Project 2">
+            <img src="400w3.jpg" alt="Residential Project 3">
+        </div>
+    </div>
+
+    <!-- Body Section 3 -->
+    <div class="body-section">
+        <h2>UPLAND APARTMENTS</h2>
+        <p></p>
+        <div class="image-container">
+            <img src="upland1.jpg" alt="Commercial Project 1">
+            <img src="upland2.jpg" alt="Commercial Project 2">
+            <img src="upland3.jpg" alt="Commercial Project 3">
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 M & P Quality Flooring. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Slideshow Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slideshow img');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance slideshow every 3 seconds
+        setInterval(nextSlide, 3000);
+
+        // Toggle login dropdown
+        function toggleLogin() {
+            const dropdown = document.getElementById('loginDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Simulate login functionality
+        function login() {
+            alert('Login functionality coming soon!');
+            toggleLogin(); // Hide the dropdown after login attempt
+        }
+    </script>
+</body>
+
+</html>

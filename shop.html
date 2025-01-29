@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M & P Quality Flooring</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #060606;
+            background: url('img_5930.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        header {
+            background-color: #f9f8f8;
+            color: #c11f1f;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+            /* For dropdown positioning */
+        }
+
+        nav ul li a {
+            color: #090909;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Checkout Dropdown */
+        .checkout-dropdown {
+            position: relative;
+        }
+
+        .checkout-dropdown button {
+            background-color: #cb1c1c;
+            color: #f7f4f4;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkout-dropdown button:hover {
+            background-color: #0056b3;
+        }
+
+        .checkout-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #f9f6f6;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(252, 251, 251, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            padding: 10px;
+        }
+
+        .checkout-dropdown-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .checkout-dropdown-content ul li {
+            padding: 10px;
+            border-bottom: 1px solid #080808;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkout-dropdown-content ul li button {
+            background-color: #dc3545;
+            color: #fbfafa;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .checkout-dropdown-content ul li button:hover {
+            background-color: #c82333;
+        }
+
+        .checkout-dropdown-content .checkout-options {
+            margin-top: 10px;
+        }
+
+        .checkout-dropdown-content .checkout-options button {
+            width: 100%;
+            background-color: #b11b1b;
+            color: #fbfafa;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .checkout-dropdown-content .checkout-options button:hover {
+            background-color: #218838;
+        }
+
+        /* Cart Count */
+        .cart-count {
+            background-color: #ff5722;
+            color: #f7f4f4;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        /* Sign In Button and Dropdown */
+        .sign-in-dropdown {
+            position: relative;
+        }
+
+        .sign-in-button {
+            background-color: #cb1717;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .sign-in-button:hover {
+            background-color: #218838;
+        }
+
+        .sign-in-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #f9f6f6;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(252, 251, 251, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            padding: 15px;
+        }
+
+        .sign-in-dropdown-content h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .sign-in-dropdown-content label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .sign-in-dropdown-content input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .sign-in-dropdown-content button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b91616;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .sign-in-dropdown-content button:hover {
+            background-color: #218838;
+        }
+
+        /* Show dropdown on hover */
+        .sign-in-dropdown:hover .sign-in-dropdown-content {
+            display: block;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product {
+            background-color: #0a0a0a;
+            border: 1px solid #050505;
+            border-radius: 8px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(253, 251, 251, 0.1);
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .product p {
+            margin: 5px 0;
+            color: #777;
+        }
+
+        .product button {
+            background-color: #b91616;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .product button:hover {
+            background-color: #218838;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fcf9f9;
+            color: #080808;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Payment Form */
+        .payment-form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-form h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .payment-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .payment-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .payment-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b91616;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .payment-form button:hover {
+            background-color: #218838;
+        }
+
+        /* Summary Section */
+        .summary {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .summary p {
+            margin: 5px 0;
+        }
+
+        /* Cart Summary in Payment Form */
+        .cart-summary {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-summary h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .cart-summary p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>The M&P SHOP</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="shop.html">Store</a></li>
+                <li><a href="showcase.html">PROJECTS</a></li>
+                <li><a href="contact us.html">GET A QUOTE</a></li>
+                <li>
+                    <div class="checkout-dropdown">
+                        <button onclick="toggleDropdown()">
+                            Cart
+                            <span class="cart-count" id="cart-count">0</span>
+                        </button>
+                        <div class="checkout-dropdown-content" id="checkout-dropdown">
+                            <ul id="cart-items">
+                                <!-- Cart items will be dynamically added here -->
+                            </ul>
+                            <div class="summary">
+                                <h3>Order Summary</h3>
+                                <p>Subtotal: $<span id="subtotal">0.00</span></p>
+                                <p>Tax (10%): $<span id="tax">0.00</span></p>
+                                <p>Shipping: $<span id="shipping-fee">5.00</span></p>
+                                <p>Total: $<span id="total">0.00</span></p>
+                            </div>
+                            <div class="checkout-options">
+                                <button onclick="proceedToPayment()">Checkout</button>
+                                <button onclick="clearCart()">Clear Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sign-in-dropdown">
+                        <button class="sign-in-button">Sign In</button>
+                        <div class="sign-in-dropdown-content">
+                            <h3>Sign In</h3>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                            <!-- Linkable Sign In Button -->
+                            <button onclick="window.location.href='signin.html'">Sign In</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Products Section -->
+        <section id="products">
+            <h2>Construction Gear</h2>
+            <div class="products">
+                <!-- Product 1 -->
+                <div class="product">
+                    <img src="safetyvest.jpg" alt="Product 1">
+                    <h3>Hi-Vis Vest</h3>
+                    <p>$19.99</p>
+                    <button onclick="addToCart('Hi-Vis Vest', 19.99)">Add to Cart</button>
+                </div>
+                <!-- Product 2 -->
+                <div class="product">
+                    <img src="boots.jpg" alt="Product 2">
+                    <h3>Anti-Slip Construction Boots</h3>
+                    <p>$95.99</p>
+                    <button onclick="addToCart('Anti-Slip Construction Boots', 95.99)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Form -->
+        <section id="payment" style="display: none;">
+            <div class="payment-form">
+                <h2>Payment Details</h2>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <h3>Cart Summary</h3>
+                    <p>Items in Cart: <span id="cart-summary-count">0</span></p>
+                    <p>Subtotal: $<span id="cart-summary-subtotal">0.00</span></p>
+                    <p>Tax (10%): $<span id="cart-summary-tax">0.00</span></p>
+                    <p>Shipping: $<span id="cart-summary-shipping">5.00</span></p>
+                    <p>Total: $<span id="cart-summary-total">0.00</span></p>
+                </div>
+
+                <!-- Shipping Information -->
+                <h3>Shipping Information</h3>
+                <form id="payment-form">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="123 Main St" required>
+
+                    <label for="city">City</label>
+                    <input type="text" id="city" placeholder="New York" required>
+
+                    <label for="state">State</label>
+                    <input type="text" id="state" placeholder="NY" required>
+
+                    <label for="zip">Zip Code</label>
+                    <input type="text" id="zip" placeholder="10001" required>
+
+                    <!-- Payment Information -->
+                    <h3>Payment Information</h3>
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+
+                    <label for="expiry-date">Expiry Date</label>
+                    <input type="text" id="expiry-date" placeholder="MM/YY" required>
+
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="123" required>
+
+                    <label for="cardholder-name">Cardholder Name</label>
+                    <input type="text" id="cardholder-name" placeholder="John Doe" required>
+
+                    <button type="submit">Pay Now</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 M&P SHOP. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Cart Data
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to toggle the dropdown menu
+        function toggleDropdown() {
+            const dropdown = document.getElementById('checkout-dropdown');
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        }
+
+        // Close the dropdown if clicked outside
+        document.addEventListener('click', function (event) {
+            const dropdown = document.getElementById('checkout-dropdown');
+            const checkoutButton = document.querySelector('.checkout-dropdown button');
+            if (!dropdown.contains(event.target) && !checkoutButton.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Function to add items to the cart
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        // Function to remove items from the cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        // Function to update the cart display and save to local storage
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const cartSummaryCount = document.getElementById('cart-summary-count');
+            const cartSummarySubtotal = document.getElementById('cart-summary-subtotal');
+            const cartSummaryTax = document.getElementById('cart-summary-tax');
+            const cartSummaryShipping = document.getElementById('cart-summary-shipping');
+            const cartSummaryTotal = document.getElementById('cart-summary-total');
+            cartItems.innerHTML = ''; // Clear the cart display
+
+            let subtotal = 0;
+
+            // Add each item to the cart display
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    ${item.name} - $${item.price.toFixed(2)} x ${item.quantity}
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItems.appendChild(li);
+                subtotal += item.price * item.quantity;
+            });
+
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartSummaryCount.textContent = totalItems;
+
+            // Calculate taxes and total
+            const taxRate = 0.10; // 10% tax
+            const shippingFee = 5.00; // Flat shipping fee
+            const tax = subtotal * taxRate;
+            const total = subtotal + tax + shippingFee;
+
+            // Update cart summary
+            cartSummarySubtotal.textContent = subtotal.toFixed(2);
+            cartSummaryTax.textContent = tax.toFixed(2);
+            cartSummaryShipping.textContent = shippingFee.toFixed(2);
+            cartSummaryTotal.textContent = total.toFixed(2);
+
+            // Update dropdown summary
+            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('tax').textContent = tax.toFixed(2);
+            document.getElementById('shipping-fee').textContent = shippingFee.toFixed(2);
+            document.getElementById('total').textContent = total.toFixed(2);
+
+            // Save cart data to local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Function to handle checkout options
+        function proceedToPayment() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+            } else {
+                // Hide products and show payment form
+                document.getElementById('products').style.display = 'none';
+                document.getElementById('payment').style.display = 'block';
+            }
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCart();
+            alert('Cart cleared!');
+        }
+
+        // Payment Form Submission
+        document.getElementById('payment-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Payment Successful!');
+            cart = [];
+            updateCart();
+            localStorage.removeItem('cart');
+            document.getElementById('products').style.display = 'block';
+            document.getElementById('payment').style.display = 'none';
+        });
+
+        // Initialize cart on page load
+        updateCart();
+    </script>
+</body>
+
+</html>
