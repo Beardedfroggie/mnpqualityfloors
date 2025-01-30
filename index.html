@@ -23,10 +23,8 @@
             /* Header image as background */
             background-repeat: no-repeat;
             background-size: cover;
-            /* Ensure the image covers the entire screen */
-            background-position: center;
-            /* Center the image */
             background-attachment: fixed;
+            background-position: center;
         }
 
         /* Header and Navigation Styles */
@@ -39,7 +37,7 @@
         }
 
         .header-image {
-            width: 25%;
+            width: 75%;
             /* 3/4 the size of the original */
             height: auto;
             cursor: pointer;
@@ -49,17 +47,6 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
             /* Red glow around the image */
-        }
-
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-            pointer-events: none;
-            /* Ensure clicks pass through to the image */
         }
 
         header h1 {
@@ -299,7 +286,7 @@
             }
 
             .header-image {
-                width: 90%;
+                width: 75%;
                 /* Slightly larger on mobile for better visibility */
             }
 
@@ -325,14 +312,6 @@
                 font-size: 1rem;
                 /* Smaller font size for mobile */
             }
-
-            /* Optimize background image for mobile */
-            body {
-                background-attachment: scroll;
-                /* Remove fixed background for mobile */
-                background-size: contain;
-                /* Ensure the image fits within the screen */
-            }
         }
     </style>
 </head>
@@ -340,7 +319,7 @@
 <body>
     <!-- Header Section -->
     <header>
-        <a href="#">
+        <a href="home.html">
             <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
         </a>
         <div class="header-overlay"></div>
