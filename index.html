@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,11 +23,8 @@
             /* Header image as background */
             background-repeat: no-repeat;
             background-size: cover;
-            /* Ensure the image covers the entire screen */
             background-attachment: fixed;
-            /* Fixed background for desktop */
             background-position: center;
-            /* Center the image */
         }
 
         /* Header and Navigation Styles */
@@ -282,15 +279,38 @@
             font-size: 1rem;
         }
 
-        /* Responsive Design for Mobile */
+        /* Responsive Design */
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
 
-            /* Optimize background image for mobile */
-            body {
-                background-size: contain;
-                /* Ensure the image fits within the screen height and width */
-                background-attachment: scroll;
-                /* Remove fixed background for better scrolling */
+            .header-image {
+                width: 75%;
+                /* Slightly larger on mobile for better visibility */
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .submenu {
+                left: 10px;
+            }
+
+            .submenu-button {
+                font-size: 1rem;
+                /* Smaller font size for mobile */
+                padding: 8px 16px;
+            }
+
+            .submenu-content ul li a {
+                font-size: 1rem;
+                /* Smaller font size for mobile */
             }
         }
     </style>
