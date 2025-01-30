@@ -23,8 +23,10 @@
             /* Header image as background */
             background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed;
+            /* Ensure the image covers the entire screen */
             background-position: center;
+            /* Center the image */
+            background-attachment: fixed;
         }
 
         /* Header and Navigation Styles */
@@ -45,6 +47,7 @@
             margin: 0 auto;
             /* Center the image */
             border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
             /* Red glow around the image */
         }
 
@@ -70,25 +73,42 @@
         /* Left-side Submenu */
         .submenu {
             position: fixed;
-            top: 50%;
+            top: 20px;
             left: 20px;
-            transform: translateY(-50%);
-            background: rgba(51, 51, 51, 0.8);
-            /* Semi-transparent black background */
-            border-radius: 10px;
-            padding: 20px;
             z-index: 1000;
         }
 
-        .submenu ul {
+        .submenu-button {
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+
+        .submenu-content {
+            display: none;
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .submenu-content ul {
             list-style-type: none;
         }
 
-        .submenu ul li {
-            margin-bottom: 15px;
+        .submenu-content ul li {
+            margin-bottom: 10px;
         }
 
-        .submenu ul li a {
+        .submenu-content ul li a {
             color: rgb(252, 251, 251);
             text-decoration: none;
             font-size: 1.2rem;
@@ -99,9 +119,15 @@
             letter-spacing: 2px;
         }
 
-        .submenu ul li a:hover {
+        .submenu-content ul li a:hover {
             color: #ffd700;
             /* Gold color on hover */
+        }
+
+        /* Show submenu on hover or touch */
+        .submenu:hover .submenu-content,
+        .submenu:focus-within .submenu-content {
+            display: block;
         }
 
         /* Hero Section */
@@ -287,12 +313,25 @@
 
             .submenu {
                 left: 10px;
-                padding: 10px;
             }
 
-            .submenu ul li a {
+            .submenu-button {
                 font-size: 1rem;
                 /* Smaller font size for mobile */
+                padding: 8px 16px;
+            }
+
+            .submenu-content ul li a {
+                font-size: 1rem;
+                /* Smaller font size for mobile */
+            }
+
+            /* Optimize background image for mobile */
+            body {
+                background-attachment: scroll;
+                /* Remove fixed background for mobile */
+                background-size: contain;
+                /* Ensure the image fits within the screen */
             }
         }
     </style>
@@ -305,16 +344,19 @@
             <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
         </a>
         <div class="header-overlay"></div>
-        <h1>M & P <br>Quality Flooring</h1>
+        <h1>Quality Flooring</h1>
     </header>
 
     <!-- Left-side Submenu -->
     <div class="submenu">
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="showcase.html">PROJECTS</a></li>
-            <li><a href="contact us.html">GET A QUOTE</a></li>
-        </ul>
+        <button class="submenu-button">Menu</button>
+        <div class="submenu-content">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="showcase.html">PROJECTS</a></li>
+                <li><a href="contact us.html">GET A QUOTE</a></li>
+            </ul>
+        </div>
     </div>
 
     <!-- Hero Section -->
@@ -380,17 +422,13 @@
     </footer>
 
     <script>
-        // Toggle login dropdown
-        function toggleLogin() {
-            const dropdown = document.getElementById('loginDropdown');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
+        // Toggle submenu on mobile
+        const submenuButton = document.querySelector('.submenu-button');
+        const submenuContent = document.querySelector('.submenu-content');
 
-        // Simulate login functionality
-        function login() {
-            alert('Login functionality coming soon!');
-            toggleLogin(); // Hide the dropdown after login attempt
-        }
+        submenuButton.addEventListener('click', () => {
+            submenuContent.style.display = submenuContent.style.display === 'block' ? 'none' : 'block';
+        });
     </script>
 </body>
 
