@@ -17,70 +17,66 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #f8f3f3;
-            position: relative;
-            background:'IMG_5930.jpg' no-repeat center center/cover;
-            background-attachment: fixed;
-        }
-
-        /* Dim the background image */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            /* Adjust the opacity to control brightness */
-            z-index: -1;
+            background-color: #333; /* Light dark gray background */
         }
 
         /* Header and Navigation Styles */
         header {
             position: relative;
             background: transparent;
-            /* Fully transparent background */
             color: rgb(251, 249, 249);
             padding: 20px 0;
             text-align: center;
+        }
+
+        .header-image {
+            width: 75%; /* 3/4 the size of the original */
+            height: auto;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Center the image */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Red glow around the image */
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(51, 51, 51, 0.5); /* Semi-transparent overlay to blend with background */
+            pointer-events: none; /* Ensure clicks pass through to the image */
         }
 
         header h1 {
             margin-bottom: 10px;
             font-size: 2.5rem;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
-            /* Glowing red outline */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8); /* Glowing red outline */
         }
-        
-    
+
         nav ul {
             list-style-type: none;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 80px;
-            /* Increased spacing between menu items */
+            gap: 20px; /* Reduced gap for better mobile responsiveness */
             padding: 20px 0;
-            /* Added padding for better spacing */
         }
 
         nav ul li a {
             color: rgb(252, 251, 251);
             text-decoration: none;
             font-size: 1.5rem;
-            /* Increased font size for menu items */
             font-weight: 500;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
-            /* Glowing red outline */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8); /* Glowing red outline */
             transition: color 0.3s ease;
             letter-spacing: 2px;
-            /* Added letter spacing */
         }
 
         nav ul li a:hover {
-            color: #ffd700;
-            /* Gold color on hover */
+            color: #ffd700; /* Gold color on hover */
         }
 
         /* Login Container */
@@ -94,7 +90,6 @@
         /* Login Button */
         .login-button {
             background-color: transparent;
-            /* Transparent background */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -106,7 +101,6 @@
 
         .login-button:hover {
             background-color: rgba(85, 85, 85, 0.3);
-            /* Slight hover effect */
         }
 
         /* Login Dropdown */
@@ -116,11 +110,6 @@
             top: 50px;
             right: 0;
             background-color: rgba(255, 255, 255, 0.9);
-            /* Slightly transparent white */
-            border: none;
-            /* Remove border */
-            box-shadow: none;
-            /* Remove box shadow */
             padding: 20px;
             width: 250px;
             border-radius: 5px;
@@ -131,17 +120,14 @@
             padding: 10px;
             margin: 10px 0;
             border: none;
-            /* Remove border */
             border-radius: 5px;
             background-color: rgba(255, 255, 255, 0.8);
-            /* Slightly transparent white */
         }
 
         .login-dropdown button {
             width: 100%;
             padding: 10px;
             background-color: rgba(51, 51, 51, 0.8);
-            /* Semi-transparent black */
             color: white;
             border: none;
             border-radius: 5px;
@@ -150,13 +136,11 @@
 
         .login-dropdown button:hover {
             background-color: rgba(85, 85, 85, 0.8);
-            /* Darker on hover */
         }
 
         /* Hero Section */
         .hero {
             background: transparent;
-            /* Fully transparent background */
             height: 400px;
             display: flex;
             align-items: center;
@@ -168,18 +152,16 @@
         .hero h1 {
             font-size: 3rem;
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
-            /* Glowing red outline */
         }
 
         .hero .cta-buttons {
             margin-top: 20px;
         }
+
         /* Services Section */
         .services {
             padding: 40px 20px;
-            background:transparent;
-            /* Fully transparent background */
-            /* Semi-transparent white background */
+            background: transparent;
             color: #faf9f9;
             text-align: center;
         }
@@ -213,9 +195,9 @@
             font-size: 1rem;
             line-height: 1.6;
         }
+
         .hero .cta-buttons button {
             background-color: rgba(255, 0, 0, 0.8);
-            /* Red background */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -228,15 +210,12 @@
 
         .hero .cta-buttons button:hover {
             background-color: rgba(255, 0, 0, 1);
-            /* Brighter red on hover */
         }
-
 
         /* Testimonials Section */
         .testimonials {
             padding: 40px 20px;
             background: rgba(0, 0, 0, 0.7);
-            /* Semi-transparent black background */
             color: white;
             text-align: center;
         }
@@ -271,8 +250,6 @@
             font-weight: bold;
         }
 
-        
-
         /* Gallery Section */
         .gallery {
             display: grid;
@@ -280,7 +257,6 @@
             gap: 20px;
             padding: 20px;
             background: transparent;
-            /* Fully transparent background */
             margin: 20px auto;
             max-width: 1200px;
         }
@@ -299,7 +275,6 @@
         /* Footer Section */
         footer {
             background: rgba(51, 51, 51, 0.8);
-            /* Semi-transparent black background */
             color: white;
             text-align: center;
             padding: 40px 20px;
@@ -319,7 +294,6 @@
 
         footer .social-links a:hover {
             color: #ffd700;
-            /* Gold color on hover */
         }
 
         footer p {
@@ -330,6 +304,10 @@
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
+            }
+
+            .header-image {
+                width: 90%; /* Slightly larger on mobile for better visibility */
             }
 
             .hero h1 {
@@ -348,6 +326,14 @@
             .login-dropdown {
                 width: 200px;
             }
+
+            nav ul {
+                gap: 10px; /* Smaller gap for mobile */
+            }
+
+            nav ul li a {
+                font-size: 1.2rem; /* Smaller font size for mobile */
+            }
         }
     </style>
 </head>
@@ -355,7 +341,10 @@
 <body>
     <!-- Header Section -->
     <header>
-        
+        <a href="#">
+            <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
+        </a>
+        <div class="header-overlay"></div>
         <h1>M & P <br>Quality Flooring</h1>
         <nav>
             <ul>
@@ -367,7 +356,6 @@
     </header>
 
     <!-- Hero Section -->
-    
     <div class="hero">
         <h1>OUR PRIORITY IS TO ENSURE THAT EVERY PROJECT EXCEEDS YOUR EXPECTATIONS</h1>
     </div>
@@ -377,7 +365,6 @@
         <img src="vista.jpg" alt="Project Vista">
         <img src="mnp1.jpg" alt="Project MNP 1">
         <img src="mnp2.jpg" alt="Project MNP 2">
-        
     </div>
 
     <!-- Services Section -->
@@ -422,13 +409,10 @@
         </div>
     </div>
 
-    
-
     <!-- Footer Section -->
     <footer>
         <div class="social-links">
             <a href="https://www.facebook.com/people/MP-Quality-Floors-LLC/61567749599473/">Facebook</a>
-        
         </div>
         <p>&copy; 2025 M & P Quality Flooring. All rights reserved.</p>
     </footer>
