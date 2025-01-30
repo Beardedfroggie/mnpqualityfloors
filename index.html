@@ -17,7 +17,14 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #f8f3f3;
-            background-color: #333; /* Light dark gray background */
+            background-color: #333;
+            /* Light dark gray background */
+            background-image: url('IMG_5930.jpg');
+            /* Header image as background */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
 
         /* Header and Navigation Styles */
@@ -30,13 +37,15 @@
         }
 
         .header-image {
-            width: 75%; /* 3/4 the size of the original */
+            width: 25%;
+            /* 3/4 the size of the original */
             height: auto;
             cursor: pointer;
             display: block;
-            margin: 0 auto; /* Center the image */
+            margin: 0 auto;
+            /* Center the image */
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Red glow around the image */
+            /* Red glow around the image */
         }
 
         .header-overlay {
@@ -45,97 +54,54 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(51, 51, 51, 0.5); /* Semi-transparent overlay to blend with background */
-            pointer-events: none; /* Ensure clicks pass through to the image */
+            background:
+            pointer-events: none;
+            /* Ensure clicks pass through to the image */
         }
 
         header h1 {
             margin-bottom: 10px;
             font-size: 2.5rem;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8); /* Glowing red outline */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
         }
 
-        nav ul {
+        /* Left-side Submenu */
+        .submenu {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .submenu ul {
             list-style-type: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px; /* Reduced gap for better mobile responsiveness */
-            padding: 20px 0;
         }
 
-        nav ul li a {
+        .submenu ul li {
+            margin-bottom: 15px;
+        }
+
+        .submenu ul li a {
             color: rgb(252, 251, 251);
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 500;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8); /* Glowing red outline */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
             transition: color 0.3s ease;
             letter-spacing: 2px;
         }
 
-        nav ul li a:hover {
-            color: #ffd700; /* Gold color on hover */
-        }
-
-        /* Login Container */
-        .login-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        /* Login Button */
-        .login-button {
-            background-color: transparent;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .login-button:hover {
-            background-color: rgba(85, 85, 85, 0.3);
-        }
-
-        /* Login Dropdown */
-        .login-dropdown {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            width: 250px;
-            border-radius: 5px;
-        }
-
-        .login-dropdown input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .login-dropdown button {
-            width: 100%;
-            padding: 10px;
-            background-color: rgba(51, 51, 51, 0.8);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .login-dropdown button:hover {
-            background-color: rgba(85, 85, 85, 0.8);
+        .submenu ul li a:hover {
+            color: #ffd700;
+            /* Gold color on hover */
         }
 
         /* Hero Section */
@@ -307,7 +273,8 @@
             }
 
             .header-image {
-                width: 90%; /* Slightly larger on mobile for better visibility */
+                width: 90%;
+                /* Slightly larger on mobile for better visibility */
             }
 
             .hero h1 {
@@ -318,21 +285,14 @@
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
 
-            .login-container {
-                top: 10px;
-                right: 10px;
+            .submenu {
+                left: 10px;
+                padding: 10px;
             }
 
-            .login-dropdown {
-                width: 200px;
-            }
-
-            nav ul {
-                gap: 10px; /* Smaller gap for mobile */
-            }
-
-            nav ul li a {
-                font-size: 1.2rem; /* Smaller font size for mobile */
+            .submenu ul li a {
+                font-size: 1rem;
+                /* Smaller font size for mobile */
             }
         }
     </style>
@@ -345,15 +305,17 @@
             <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
         </a>
         <div class="header-overlay"></div>
-        <h1>Quality Flooring</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="showcase.html">PROJECTS</a></li>
-                <li><a href="contact us.html">GET A QUOTE</a></li>
-            </ul>
-        </nav>
+        <h1>M & P <br>Quality Flooring</h1>
     </header>
+
+    <!-- Left-side Submenu -->
+    <div class="submenu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="showcase.html">PROJECTS</a></li>
+            <li><a href="contact us.html">GET A QUOTE</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <div class="hero">
