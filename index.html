@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,6 +25,13 @@
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
+        }
+
+        /* Mobile-specific background image resizing */
+        @media (max-width: 768px) {
+            body {
+                background-size: 360px 640px; /* Resize background image for mobile */
+            }
         }
 
         /* Header and Navigation Styles */
