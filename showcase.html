@@ -15,26 +15,29 @@
             box-sizing: border-box;
         }
 
-        body {
+         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #f8f3f3;
-            position: relative;
-            background: url('background.png') no-repeat center center/cover;
+            color: #ffffff;
+            background-color: #333;
+            /* Light dark gray background */
+            background-image: url('background.png');
+            /* Header image as background */
+            background-repeat: no-repeat;
+            background-size: cover;
             background-attachment: fixed;
+            /* Fixed background */
+            background-position: center;
         }
 
-        /* Dim the background image */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(3, 3, 3, 0.5);
-            /* Adjust the opacity to control brightness */
-            z-index: -1;
+        /* Mobile-specific background image resizing */
+        @media (max-width: 768px) {
+            body {
+                background-size: cover;
+                /* Ensure the background covers the entire screen */
+                background-attachment: scroll;
+                /* Allow background to move with scroll */
+            }
         }
 
         /* Header and Navigation Styles */
@@ -328,7 +331,7 @@
         <a href="index.html">
             <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
         </a>
-        <h1>Quality Flooring</h1>
+        <h1>M & P <br>Quality Flooring</h1>
     </header>
 
     <!-- Left-side Submenu -->
@@ -341,6 +344,11 @@
                 <li><a href="contact us.html">GET A QUOTE</a></li>
             </ul>
         </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Showcase</h1>
     </div>
 
     <!-- Slideshow Container -->
