@@ -14,8 +14,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-         body {
+        body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #ffffff;
@@ -127,6 +126,31 @@
         .submenu:hover .submenu-content,
         .submenu:focus-within .submenu-content {
             display: block;
+        }
+        /* Call Now Button */
+        .call-now-button {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 0, 0, 0.8);
+            /* Red background */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+            transition: background-color 0.3s ease;
+        }
+
+        .call-now-button:hover {
+            background-color: rgba(255, 0, 0, 1);
+            /* Brighter red on hover */
         }
 
         /* Hero Section */
@@ -331,7 +355,7 @@
         <a href="index.html">
             <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
         </a>
-        <h1>Quality Flooring</h1>
+        <h1>M & P <br>Quality Flooring</h1>
     </header>
 
     <!-- Left-side Submenu -->
@@ -339,14 +363,15 @@
         <button class="submenu-button">Menu</button>
         <div class="submenu-content">
             <ul>
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="home.html">HOME</a></li>
                 <li><a href="showcase.html">PROJECTS</a></li>
                 <li><a href="contact us.html">GET A QUOTE</a></li>
             </ul>
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Call Now Button -->
+    <a href="tel:+1234567890" class="call-now-button">Call Now 603-584-2451</a>
 
     <!-- Slideshow Container -->
     <div class="slideshow-container">
@@ -423,7 +448,7 @@
         }
 
         // Auto-advance slideshow every 3 seconds
-        setInterval(nextSlide, 2000);
+        setInterval(nextSlide, 3000);
 
         // Toggle submenu on mobile
         const submenuButton = document.querySelector('.submenu-button');
