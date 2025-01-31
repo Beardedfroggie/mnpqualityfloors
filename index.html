@@ -16,10 +16,10 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #f8f3f3;
+            color: #ffffff;
             background-color: #333;
             /* Light dark gray background */
-            background-image: url('background.jpg');
+            background-image: url('background.png');
             /* Header image as background */
             background-repeat: no-repeat;
             background-size: cover;
@@ -32,7 +32,8 @@
             body {
                 background-size: 1000px 1700px;
                 /* Resize background image for mobile */
-                background-attachment: scroll; /* Make background image move with scroll on mobile */
+                background-attachment: scroll;
+                /* Make background image move with scroll on mobile */
             }
         }
 
@@ -41,13 +42,14 @@
         header {
             position: relative;
             background: transparent;
-            color: rgb(251, 249, 249);
+            color: rgb(255, 255, 255);
             padding: 20px 0;
             text-align: center;
+            
         }
 
         .header-image {
-            width: 75%;
+            width: 20%;
             /* 3/4 the size of the original */
             height: auto;
             cursor: pointer;
@@ -55,7 +57,8 @@
             margin: 0 auto;
             /* Center the image */
             border-radius: 10px;
-            box-shadow:
+            box-shadow:0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
         }
 
         header h1 {
@@ -329,7 +332,7 @@
     <!-- Header Section -->
     <header>
         <a href="index.html">
-            <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
+            <img src="img_5930.jpg" alt="Header Image" class="header-image">
         </a>
         <div class="header-overlay"></div>
         <h1>Quality Flooring</h1>
