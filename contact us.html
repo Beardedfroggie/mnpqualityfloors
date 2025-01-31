@@ -16,30 +16,27 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #f8f3f3;
-            position: relative;
-            background: url('IMG_5930.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            background-color: #333;
+            /* Light dark gray background */
+            background-image: url('background.png');
+            /* Header image as background */
+            background-repeat: no-repeat;
+            background-size: cover;
             background-attachment: fixed;
+            /* Fixed background */
+            background-position: center;
         }
 
         /* Mobile-specific background image resizing */
         @media (max-width: 768px) {
             body {
-                background-size: 500px 1000px; /* Resize background image for mobile */
+                background-size: cover;
+                /* Ensure the background covers the entire screen */
+                background-attachment: scroll;
+                /* Allow background to move with scroll */
             }
         }
-
-        /* Dim the background image */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-        }
-
         /* Header and Navigation Styles */
         header {
             position: relative;
@@ -50,15 +47,14 @@
         }
 
         .header-image {
-            width: 75%;
-            /* 3/4 the size of the original */
+            width: 20%;
             height: auto;
             cursor: pointer;
             display: block;
             margin: 0 auto;
-            /* Center the image */
             border-radius: 10px;
-            box-shadow: 
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
         }
 
         header h1 {
@@ -129,10 +125,36 @@
             display: block;
         }
 
+        /* Call Now Button */
+        .call-now-button {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 0, 0, 0.8);
+            /* Red background */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+            transition: background-color 0.3s ease;
+        }
+
+        .call-now-button:hover {
+            background-color: rgba(255, 0, 0, 1);
+            /* Brighter red on hover */
+        }
+
         /* Contact Form Section */
         .contact-form {
             max-width: 600px;
-            margin: 50px auto;
+            margin: 20px auto;
             padding: 20px;
             background: rgba(255, 255, 255, 0.8);
             /* Semi-transparent white background */
@@ -253,6 +275,12 @@
                 /* Slightly larger on mobile for better visibility */
             }
 
+            .call-now-button {
+                width: 90%;
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+
             .contact-form {
                 padding: 15px;
             }
@@ -281,8 +309,7 @@
         <a href="index.html">
             <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
         </a>
-        <div class="header-overlay"></div>
-        <h1>Quality Flooring</h1>
+        <h1>M & P <br>Quality Flooring</h1>
     </header>
 
     <!-- Left-side Submenu -->
@@ -296,6 +323,9 @@
             </ul>
         </div>
     </div>
+
+    <!-- Call Now Button -->
+    <a href="tel:+1234567890" class="call-now-button">Call Now:603-584-2451</a>
 
     <!-- Contact Form Section -->
     <div class="contact-form">
@@ -325,8 +355,8 @@
 
     <!-- Contact Info Section -->
     <div class="contact-info">
-        <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-        <p>Email: <a href="mailto:info@mpqualityflooring.com">info@mpqualityflooring.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">603-584-2451</a></p>
+        <p>Email: <a href="mailto:info@mpqualityflooring.com">mypqualityfloors@gmail.com</a></p>
     </div>
 
     <!-- Footer Section -->
@@ -345,6 +375,17 @@
 
         submenuButton.addEventListener('click', () => {
             submenuContent.style.display = submenuContent.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Floating background effect on mobile
+        const body = document.body;
+        let scrollPos = 0;
+
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) { // Apply only on mobile devices
+                scrollPos = window.scrollY;
+                body.style.backgroundPosition = `center ${-scrollPos * 0.5}px`; // Adjust the multiplier for speed
+            }
         });
     </script>
 </body>
