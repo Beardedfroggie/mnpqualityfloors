@@ -46,10 +46,22 @@
         header {
             position: relative;
             background: transparent;
-            /* Fully transparent background */
             color: rgb(251, 249, 249);
             padding: 20px 0;
             text-align: center;
+        }
+
+        .header-image {
+            width: 75%;
+            /* 3/4 the size of the original */
+            height: auto;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            /* Center the image */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Red glow around the image */
         }
 
         header h1 {
@@ -60,109 +72,64 @@
             /* Glowing red outline */
         }
 
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 80px;
-            /* Increased spacing between menu items */
-            padding: 20px 0;
-            /* Added padding for better spacing */
+        /* Left-side Submenu */
+        .submenu {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
         }
 
-        nav ul li a {
+        .submenu-button {
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+
+        .submenu-content {
+            display: none;
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .submenu-content ul {
+            list-style-type: none;
+        }
+
+        .submenu-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .submenu-content ul li a {
             color: rgb(252, 251, 251);
             text-decoration: none;
-            font-size: 1.5rem;
-            /* Increased font size for menu items */
+            font-size: 1.2rem;
             font-weight: 500;
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
             /* Glowing red outline */
             transition: color 0.3s ease;
             letter-spacing: 2px;
-            /* Added letter spacing */
         }
 
-        nav ul li a:hover {
+        .submenu-content ul li a:hover {
             color: #ffd700;
             /* Gold color on hover */
         }
 
-        /* Login Container */
-        .login-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        /* Login Button */
-        .login-button {
-            background-color: transparent;
-            /* Transparent background */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .login-button:hover {
-            background-color: rgba(85, 85, 85, 0.3);
-            /* Slight hover effect */
-        }
-
-        /* Login Dropdown */
-        .login-dropdown {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background-color: rgba(255, 255, 255, 0.9);
-            /* Slightly transparent white */
-            border: none;
-            /* Remove border */
-            box-shadow: none;
-            /* Remove box shadow */
-            padding: 20px;
-            width: 250px;
-            border-radius: 5px;
-        }
-
-        .login-dropdown h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-            text-align: center;
-        }
-
-        .login-dropdown input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            /* Remove border */
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8);
-            /* Slightly transparent white */
-        }
-
-        .login-dropdown button {
-            width: 100%;
-            padding: 10px;
-            background-color: rgba(51, 51, 51, 0.8);
-            /* Semi-transparent black */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .login-dropdown button:hover {
-            background-color: rgba(85, 85, 85, 0.8);
-            /* Darker on hover */
+        /* Show submenu on hover or touch */
+        .submenu:hover .submenu-content,
+        .submenu:focus-within .submenu-content {
+            display: block;
         }
 
         /* Contact Form Section */
@@ -284,17 +251,28 @@
                 font-size: 2rem;
             }
 
+            .header-image {
+                width: 75%;
+                /* Slightly larger on mobile for better visibility */
+            }
+
             .contact-form {
                 padding: 15px;
             }
 
-            .login-container {
-                top: 10px;
-                right: 10px;
+            .submenu {
+                left: 10px;
             }
 
-            .login-dropdown {
-                width: 200px;
+            .submenu-button {
+                font-size: 1rem;
+                /* Smaller font size for mobile */
+                padding: 8px 16px;
+            }
+
+            .submenu-content ul li a {
+                font-size: 1rem;
+                /* Smaller font size for mobile */
             }
         }
     </style>
@@ -303,15 +281,24 @@
 <body>
     <!-- Header Section -->
     <header>
-        <h1>M & P <br>Quality Flooring</h1>
-        <nav>
+        <a href="index.html">
+            <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
+        </a>
+        <div class="header-overlay"></div>
+        <h1>Quality Flooring</h1>
+    </header>
+
+    <!-- Left-side Submenu -->
+    <div class="submenu">
+        <button class="submenu-button">Menu</button>
+        <div class="submenu-content">
             <ul>
-                <li><a href="home.html">HOME</a></li>
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="showcase.html">PROJECTS</a></li>
                 <li><a href="contact us.html">GET A QUOTE</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </div>
 
     <!-- Contact Form Section -->
     <div class="contact-form">
@@ -348,26 +335,20 @@
     <!-- Footer Section -->
     <footer>
         <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
+            <a href="https://www.facebook.com/people/MP-Quality-Floors-LLC/61567749599473/">Facebook</a>
         </div>
         <p>&copy; 2025 M & P Quality Flooring. All rights reserved.</p>
     </footer>
 
-    <!-- Script for login dropdown (unchanged) -->
+    <!-- Script for submenu toggle -->
     <script>
-        // Toggle login dropdown on hover
-        function toggleLogin() {
-            const dropdown = document.getElementById('loginDropdown');
-            dropdown.style.display = 'block';
-        }
+        // Toggle submenu on mobile
+        const submenuButton = document.querySelector('.submenu-button');
+        const submenuContent = document.querySelector('.submenu-content');
 
-        // Hide login dropdown when mouse leaves
-        function hideLogin() {
-            const dropdown = document.getElementById('loginDropdown');
-            dropdown.style.display = 'none';
-        }
+        submenuButton.addEventListener('click', () => {
+            submenuContent.style.display = submenuContent.style.display === 'block' ? 'none' : 'block';
+        });
     </script>
 </body>
 
