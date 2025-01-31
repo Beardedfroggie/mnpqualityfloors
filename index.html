@@ -31,7 +31,7 @@
         @media (max-width: 768px) {
             body {
                 background-size: cover; /* Ensure the background covers the entire screen */
-                background-attachment: fixed; /* Keep the background fixed on mobile */
+                background-attachment: scroll; /* Allow background to move with scroll */
             }
         }
 
@@ -416,6 +416,17 @@
 
         submenuButton.addEventListener('click', () => {
             submenuContent.style.display = submenuContent.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Floating background effect on mobile
+        const body = document.body;
+        let scrollPos = 0;
+
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) { // Apply only on mobile devices
+                scrollPos = window.scrollY;
+                body.style.backgroundPosition = `center ${-scrollPos * 0.5}px`; // Adjust the multiplier for speed
+            }
         });
     </script>
 </body>
