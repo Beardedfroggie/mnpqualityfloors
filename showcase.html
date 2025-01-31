@@ -47,6 +47,17 @@
             text-align: center;
         }
 
+        .header-image {
+            width: 20%;
+            height: auto;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+
         header h1 {
             margin-bottom: 10px;
             font-size: 2.5rem;
@@ -55,40 +66,69 @@
             /* Glowing red outline */
         }
 
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            /* Center menu items horizontally */
-            padding: 10px 20px;
-            /* Add padding for spacing */
-            gap: 80px;
-            /* Increased spacing between menu items */
+        /* Left-side Submenu */
+        .submenu {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
         }
 
-        nav ul li a {
-            color: rgb(250, 246, 246);
-            /* Red color for menu items */
+        .submenu-button {
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+        }
+
+        .submenu-content {
+            display: none;
+            background: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent black background */
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .submenu-content ul {
+            list-style-type: none;
+        }
+
+        .submenu-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .submenu-content ul li a {
+            color: rgb(252, 251, 251);
             text-decoration: none;
-            font-size: 1.5rem;
-            /* Increased font size for menu items */
+            font-size: 1.2rem;
             font-weight: 500;
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
             /* Glowing red outline */
             transition: color 0.3s ease;
             letter-spacing: 2px;
-            /* Added letter spacing */
         }
 
-        nav ul li a:hover {
+        .submenu-content ul li a:hover {
             color: #ffd700;
             /* Gold color on hover */
+        }
+
+        /* Show submenu on hover or touch */
+        .submenu:hover .submenu-content,
+        .submenu:focus-within .submenu-content {
+            display: block;
         }
 
         /* Hero Section */
         .hero {
             background: transparent;
-            /* Fully transparent background */
             height: 400px;
             display: flex;
             align-items: center;
@@ -223,6 +263,11 @@
                 font-size: 2rem;
             }
 
+            .header-image {
+                width: 75%;
+                /* Slightly larger on mobile for better visibility */
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -260,6 +305,19 @@
                 width: 100%;
                 /* Full width for stacked images */
             }
+
+            .submenu {
+                left: 10px;
+            }
+
+            .submenu-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .submenu-content ul li a {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -267,15 +325,23 @@
 <body>
     <!-- Header Section -->
     <header>
+        <a href="index.html">
+            <img src="IMG_5930.jpg" alt="Header Image" class="header-image">
+        </a>
         <h1>M & P <br>Quality Flooring</h1>
-        <nav>
+    </header>
+
+    <!-- Left-side Submenu -->
+    <div class="submenu">
+        <button class="submenu-button">Menu</button>
+        <div class="submenu-content">
             <ul>
                 <li><a href="home.html">HOME</a></li>
                 <li><a href="showcase.html">PROJECTS</a></li>
                 <li><a href="contact us.html">GET A QUOTE</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <div class="hero">
@@ -358,6 +424,25 @@
 
         // Auto-advance slideshow every 3 seconds
         setInterval(nextSlide, 3000);
+
+        // Toggle submenu on mobile
+        const submenuButton = document.querySelector('.submenu-button');
+        const submenuContent = document.querySelector('.submenu-content');
+
+        submenuButton.addEventListener('click', () => {
+            submenuContent.style.display = submenuContent.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Floating background effect on mobile
+        const body = document.body;
+        let scrollPos = 0;
+
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) { // Apply only on mobile devices
+                scrollPos = window.scrollY;
+                body.style.backgroundPosition = `center ${-scrollPos * 0.5}px`; // Adjust the multiplier for speed
+            }
+        });
     </script>
 </body>
 
