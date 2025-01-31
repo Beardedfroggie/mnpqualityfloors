@@ -20,7 +20,7 @@
             line-height: 1.6;
             color: #f8f3f3;
             position: relative;
-            background: url('img_5930.jpg') no-repeat center center/cover;
+            background: url('./img_5930.jpg') no-repeat center center/cover;
             background-attachment: fixed;
         }
 
@@ -83,76 +83,6 @@
         nav ul li a:hover {
             color: #ffd700;
             /* Gold color on hover */
-        }
-
-        /* Login Container */
-        .login-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        /* Login Button */
-        .login-button {
-            background-color: transparent;
-            /* Transparent background */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .login-button:hover {
-            background-color: rgba(85, 85, 85, 0.3);
-            /* Slight hover effect */
-        }
-
-        /* Login Dropdown */
-        .login-dropdown {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background-color: rgba(255, 255, 255, 0.9);
-            /* Slightly transparent white */
-            border: none;
-            /* Remove border */
-            box-shadow: none;
-            /* Remove box shadow */
-            padding: 20px;
-            width: 250px;
-            border-radius: 5px;
-        }
-
-        .login-dropdown input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            /* Remove border */
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8);
-            /* Slightly transparent white */
-        }
-
-        .login-dropdown button {
-            width: 100%;
-            padding: 10px;
-            background-color: rgba(51, 51, 51, 0.8);
-            /* Semi-transparent black */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .login-dropdown button:hover {
-            background-color: rgba(85, 85, 85, 0.8);
-            /* Darker on hover */
         }
 
         /* Hero Section */
@@ -238,27 +168,14 @@
         /* Body Section */
         .body-section {
             padding: 40px 20px;
-            background:
+            background: transparent;
+            color: white;
+            text-align: center;
         }
-            /* Dim the background image */
-            body:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.5);
-                /* Adjust the opacity to control brightness */
-                z-index: -1;
-            }
-
-            {text-align: center;}
 
         .body-section h2 {
             font-size: 2rem;
             margin-bottom: 20px;
-
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
             /* Glowing red outline */
         }
@@ -266,7 +183,6 @@
         .body-section p {
             font-size: 1.1rem;
             line-height: 1.8;
-
             max-width: 800px;
             margin: 0 auto;
         }
@@ -351,12 +267,10 @@
 <body>
     <!-- Header Section -->
     <header>
-        
-
         <h1>M & P <br>Quality Flooring</h1>
         <nav>
             <ul>
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="home.html">HOME</a></li>
                 <li><a href="showcase.html">PROJECTS</a></li>
                 <li><a href="contact us.html">GET A QUOTE</a></li>
             </ul>
@@ -372,9 +286,9 @@
     <div class="slideshow-container">
         <!-- Slideshow Section -->
         <div class="slideshow">
-            <img src="upland1.jpg" alt="Project Photo" class="active">
-            <img src="vesta.jpg" alt="Project Vista">
-            <img src="upland2.jpg" alt="Project MNP 1">
+            <img src="./upland1.jpg" alt="Project Photo" class="active">
+            <img src="./vesta.jpg" alt="Project Vista">
+            <img src="./upland2.jpg" alt="Project MNP 1">
             <button class="prev" onclick="prevSlide()">&#10094;</button>
             <button class="next" onclick="nextSlide()">&#10095;</button>
         </div>
@@ -388,9 +302,9 @@
             OVER 25,000 SQ.FT. OF FLOORING INSTALLED
         </p>
         <div class="image-container">
-            <img src="vesta.jpg" alt="Vesta Project">
-            <img src="vesta1.jpg" alt="Vesta Project 1">
-            <img src="vesta2.jpg" alt="Vesta Project 2">
+            <img src="./vesta.jpg" alt="Vesta Project">
+            <img src="./vesta1.jpg" alt="Vesta Project 1">
+            <img src="./vesta2.jpg" alt="Vesta Project 2">
         </div>
     </div>
 
@@ -399,9 +313,9 @@
         <h2>400 W BROADWAY</h2>
         <p></p>
         <div class="image-container">
-            <img src="400w1.jpg" alt="Residential Project 1">
-            <img src="400w2.jpg" alt="Residential Project 2">
-            <img src="400w3.jpg" alt="Residential Project 3">
+            <img src="./400w1.jpg" alt="Residential Project 1">
+            <img src="./400w2.jpg" alt="Residential Project 2">
+            <img src="./400w3.jpg" alt="Residential Project 3">
         </div>
     </div>
 
@@ -410,9 +324,9 @@
         <h2>UPLAND APARTMENTS</h2>
         <p></p>
         <div class="image-container">
-            <img src="upland1.jpg" alt="Commercial Project 1">
-            <img src="upland2.jpg" alt="Commercial Project 2">
-            <img src="upland3.jpg" alt="Commercial Project 3">
+            <img src="./upland1.jpg" alt="Commercial Project 1">
+            <img src="./upland2.jpg" alt="Commercial Project 2">
+            <img src="./upland3.jpg" alt="Commercial Project 3">
         </div>
     </div>
 
@@ -444,8 +358,6 @@
 
         // Auto-advance slideshow every 3 seconds
         setInterval(nextSlide, 3000);
-
-        
     </script>
 </body>
 
