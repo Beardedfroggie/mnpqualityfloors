@@ -23,16 +23,15 @@
             /* Header image as background */
             background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed;
-            background-position: top;
+            background-attachment: fixed; /* Fixed background */
+            background-position: center;
         }
 
         /* Mobile-specific background image resizing */
         @media (max-width: 768px) {
             body {
-                background-size: 1000px 1700px;
-                /* Resize background image for mobile */
-                background-attachment: fixed;
+                background-size: cover; /* Ensure the background covers the entire screen */
+                background-attachment: fixed; /* Keep the background fixed on mobile */
             }
         }
 
@@ -44,7 +43,6 @@
             color: rgb(255, 255, 255);
             padding: 20px 0;
             text-align: center;
-            
         }
 
         .header-image {
