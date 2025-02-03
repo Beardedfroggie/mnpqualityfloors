@@ -54,7 +54,7 @@
             display: block;
             margin: 0 auto;
             border-radius: 10px;
-            box-shadow: 
+            box-shadow:
             position: relative;
             /* Required for pseudo-element positioning */
         }
@@ -128,6 +128,31 @@
 
         .submenu-content ul li a:hover {
             color: #ffd700;
+        }
+        /* Call Now Button */
+        .call-now-button {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 0, 0, 0.8);
+            /* Red background */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            /* Glowing red outline */
+            transition: background-color 0.3s ease;
+        }
+
+        .call-now-button:hover {
+            background-color: rgba(255, 0, 0, 1);
+            /* Brighter red on hover */
         }
 
         /* Hero Section */
@@ -334,6 +359,8 @@
         </a>
         <h1>Quality Flooring</h1>
     </header>
+    <!-- Call Now Button -->
+    <a href="tel:+1603-584-2451" class="call-now-button">Call Now 603-584-2451</a>
 
     <!-- Left-side Submenu -->
     <div class="submenu">
